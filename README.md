@@ -2,8 +2,6 @@
 
 Welcome to the repository for my personal portfolio. This project is designed to be more than just a static page; it's an immersive digital experience that showcases my skills in web development and creative design. It leverages the power of 3D and scroll-based animations to guide the user through my work, skills, and contact information.
 
-> *A GIF showcasing the scroll-driven animations and 3D interactions of the portfolio.*
-
 ### **[View The Live Site Here](https://toxotis-portfolio.onrender.com)**
 
 ---
@@ -31,39 +29,5 @@ This project was built using a combination of modern web technologies:
 *   **Icons:** `React Icons`
 *   **Styling:** `CSS` (with custom properties)
 *   **Deployment:** `Render`
-
----
-
-## 🚀 Running The Project Locally
-
-To get a local copy up and running, follow these simple steps.
-
-### Prerequisites
-
-You need to have [Node.js](https://nodejs.org/en/) (which includes npm) installed on your machine.
-
-### Installation & Setup
-
-1.  **Clone the repository:**
-    ```sh
-    git clone https://github.com/Saumy-TOXOTIS/portfolio.git
-    ```
-
-2.  **Navigate into the project directory:**
-    ```sh
-    cd portfolio
-    ```
-
-3.  **Install NPM packages:**
-    ```sh
-    npm install
-    ```
-
-4.  **Run the development server:**
-    ```sh
-    npm run dev
-    ```
-
-This will start the development server, and you can view the project at `http://localhost:5173` (or another port if 5173 is busy).
 
 ---
