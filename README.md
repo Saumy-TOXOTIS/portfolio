@@ -1,4 +1,4 @@
-# Saumy Tiwari's 3D Interactive Portfolio
+# My 3D Interactive Portfolio
 
 Welcome to the repository for my personal portfolio. This project is designed to be more than just a static page; it's an immersive digital experience that showcases my skills in web development and creative design. It leverages the power of 3D and scroll-based animations to guide the user through my work, skills, and contact information.
 
