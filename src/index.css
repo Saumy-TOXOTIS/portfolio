@@ -1,0 +1,844 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  color: #e0e0e0;
+  -webkit-overflow-scrolling: touch;
+  overflow-y: scroll;
+}
+
+:root {
+  --primary-bg: #121212;
+  --text-color-light: #e0e0e0;
+  --text-color-dark: #a0a0a0;
+  --accent-color: #ff9900;
+  --accent-color-hover: #ffad33;
+  --card-bg: rgba(44, 44, 44, 0.4);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --font-family: 'Poppins', sans-serif;
+}
+
+/* Base Layout */
+#main {
+  width: 100%;
+  height: 400vh;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.section-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Vertical Layout */
+#main.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Content Wrapper */
+.section-content-wrapper {
+  width: 90%;
+  max-width: 1100px;
+  height: 90%;
+  padding: 2rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 2rem;
+  pointer-events: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.section-content-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* Navigation Dots */
+.navigation-dots {
+  position: fixed;
+  top: 50%;
+  right: 25px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 100;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: var(--text-color-dark);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.5;
+}
+
+.dot.active {
+  background-color: var(--accent-color);
+  transform: scale(1.5);
+  opacity: 1;
+  box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Home Page */
+.home-content {
+  width: auto;
+  height: auto;
+  padding: 5vh 5vw;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+  z-index: 10;
+}
+
+.home-content-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 500px;
+  width: 100%;
+}
+
+.intro-text {
+  color: white;
+}
+
+.intro-text h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.intro-text p {
+  font-size: 1.2rem;
+  color: var(--text-color-dark);
+  margin: 1rem 0 2.5rem;
+  max-width: 450px;
+  text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.home-nav-buttons {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 300px;
+}
+
+.home-nav-button {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  color: var(--text-color-light);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.home-nav-button .button-icon {
+  color: var(--accent-color);
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.home-nav-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-color);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.home-nav-button:hover .button-icon {
+  transform: scale(1.2) rotate(-10deg);
+}
+
+/* Common Page Styles */
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  flex-shrink: 0;
+}
+
+.page-header h2 {
+  font-size: 4rem;
+  font-weight: 700;
+  color: white;
+}
+
+.page-header p {
+  font-size: 1.2rem;
+  margin: 0.5rem auto;
+  color: var(--text-color-dark);
+  max-width: 600px;
+}
+
+/* About Page */
+.about-me-content {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+  padding: 3rem;
+  border-radius: 12px;
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-me-text h3 {
+  font-size: 2rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+}
+
+.about-me-text p {
+  line-height: 1.8;
+  color: var(--text-color-dark);
+  margin-bottom: 1rem;
+}
+
+.profile-pic {
+  width: 100%;
+  max-width: 250px;
+  border-radius: 50%;
+  border: 5px solid var(--accent-color);
+  box-shadow: 0 0 25px rgba(255, 153, 0, 0.3);
+  object-fit: cover;  /* This prevents the image from stretching */
+  aspect-ratio: 1 / 1; /* This ensures the container is a perfect square */
+}
+
+/* Skills Section - Updated with Larger Icons */
+.skills-section {
+  padding-top: 4rem;
+  text-align: center;
+}
+
+.skills-section h3 {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 3rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Slightly wider cards */
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.skill-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  background: var(--card-bg);
+  border-color: var(--accent-color);
+}
+
+.skill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px; /* Increased from 60px */
+  width: 80px;  /* Increased from 60px */
+  transition: all 0.4s ease;
+  filter: grayscale(100%) brightness(0.8);
+  opacity: 0.7;
+}
+
+.skill-card:hover .skill-icon {
+  transform: scale(1.2); /* Increased from 1.1 */
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+}
+
+.skill-icon svg {
+  height: 100%;
+  width: 100%;
+}
+
+.skill-card p {
+  font-size: 1.1rem; /* Slightly larger text */
+  font-weight: 600;
+  color: var(--text-color-light);
+  margin: 0;
+}
+
+/* Projects Page */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 153, 0, 0.5);
+  box-shadow: 0 0 40px rgba(255, 153, 0, 0.2);
+}
+
+.project-card h3 {
+  margin: 0 0 0.5rem;
+  color: var(--accent-color);
+  font-size: 1.5rem;
+}
+
+.project-card p {
+  color: var(--text-color-dark);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.project-card a {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: var(--accent-color);
+  color: var(--primary-bg);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+}
+
+.project-card a:hover {
+  background-color: var(--accent-color-hover);
+}
+
+/* Contact Page */
+.social-links-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  padding: 4rem 2rem;
+  pointer-events: none;
+}
+
+.social-icon-link {
+  color: var(--text-color-dark);
+  font-size: 4rem;
+  transition: all 0.3s ease;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  pointer-events: auto;
+  position: relative;
+  z-index: 10;
+}
+
+.social-icon-link:hover {
+  transform: translateY(-10px) scale(1.1);
+  filter: grayscale(0%);
+  opacity: 1;
+}
+
+.social-icon-link[aria-label="LinkedIn"]:hover {
+  color: #0077B5;
+}
+
+.social-icon-link[aria-label="GitHub"]:hover {
+  color: #FFFFFF;
+}
+
+.social-icon-link[aria-label="Email"]:hover {
+  color: #c71610;
+}
+
+/* Spline Background */
+.spline-background-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.spline-background-fixed canvas {
+  pointer-events: auto !important;
+}
+
+/* Scrollbar */
+html::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Utility Classes */
+.pointer-events-none {
+  pointer-events: none;
+}
+
+.pointer-events-auto {
+  pointer-events: auto;
+}
+
+/* Add this to your index.css */
+
+/* Right Aligned Content */
+.right-aligned-content {
+    margin-left: auto;
+    margin-right: 5vw;
+    width: auto;
+    max-width: 600px;
+    align-items: flex-end;
+}
+
+/* Adjust the about content layout */
+.about-me-content {
+    flex-direction: row-reverse; /* This will put the image on the left */
+    text-align: right;
+    padding: 2rem; /* Reduced padding */
+}
+
+/* Make the profile pic container smaller */
+.profile-pic-container {
+    flex-shrink: 0;
+}
+
+/* Skills Section Wrapper */
+.skills-section-wrapper {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+/* Adjust the skills section */
+.skills-section {
+    padding-top: 2rem;
+    text-align: right;
+    width: 100%;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 160px)); /* Fixed width */
+    gap: 2rem;
+    justify-content: flex-end; /* Align grid to right */
+    width: 100%;
+}
+
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    width: 160px; /* Fixed width */
+    height: 160px; /* Optional: fixed height for consistency */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* For mobile responsiveness */
+@media (max-width: 768px) {
+    .right-aligned-content {
+        margin-right: auto;
+        max-width: 90%;
+        align-items: center;
+    }
+    
+    .skills-section {
+        text-align: center;
+    }
+    
+    .skills-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 140px));
+        justify-content: center;
+    }
+    
+    .skill-card {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+/* Left Aligned Content */
+.left-aligned-content {
+    margin-right: auto;
+    margin-left: 5vw;
+    width: auto;
+    max-width: 600px;
+    align-items: flex-start;
+}
+
+.project-links {
+  display: flex; /* This makes the buttons go side-by-side */
+  gap: 1rem;     /* This adds the space between them */
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+/* Projects Grid Adjustments */
+.projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: start;
+    width: 100%;
+}
+
+.project-card {
+    width: 100%;
+    max-width: 320px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .left-aligned-content {
+        margin-left: auto;
+        max-width: 90%;
+        align-items: center;
+    }
+    
+    .projects-grid {
+        justify-items: center;
+    }
+    
+    .project-card {
+        max-width: 100%;
+    }
+}
+
+.project-button {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  background-color: transparent;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.project-button:hover {
+  background-color: var(--accent-color);
+  color: var(--primary-bg);
+  transform: translateY(-2px);
+}
+
+.project-button.live {
+  background-color: var(--accent-color);
+  color: var(--primary-bg);
+}
+
+.project-button.live:hover {
+  background-color: var(--accent-color-hover);
+  transform: translateY(-2px);
+}
+
+/* --- Loader / Preloader Styles --- */
+.loader-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--primary-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+}
+
+.loader-container.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-content {
+  text-align: center;
+  color: var(--text-color-light);
+}
+
+.loader-content h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.loader-content p {
+  font-size: 1.2rem;
+  color: var(--text-color-dark);
+}
+
+/* Simple CSS Spinner */
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid var(--border-color);
+  border-top: 5px solid var(--accent-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 2rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Text Slider Effect for Nav Buttons */
+
+/* 1. Container jo text ko clip karega (chhupayega) */
+.text-slider-container {
+  position: relative;
+  display: inline-block;
+  /* Font-size ke hisab se height set karein, taaki ek line fit ho */
+  height: 1.2em; 
+  /* Jo bhi is container se bahar jayega, wo dikhega nahi */
+  overflow: hidden;
+}
+
+/* 2. Dono text (original aur hover) ke liye common styles */
+.text-slider-container span {
+  display: block;
+  /* Smooth animation ke liye transition */
+  transition: transform 0.4s cubic-bezier(0.6, 0, 0.2, 1);
+  /* Text color parent button se lega */
+}
+
+/* 3. Hover wala text shuru mein neeche chhupa rahega */
+.text-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Isko container se 100% neeche bhej do */
+  transform: translateY(100%);
+}
+
+/* 4. Jab button par hover ho, to animation trigger karo */
+.home-nav-button:hover .text-original {
+  /* Original text ko upar ki taraf bhej kar chhupa do */
+  transform: translateY(-100%);
+}
+
+.home-nav-button:hover .text-hover {
+  /* Chhupe hue text ko uski jagah le aao */
+  transform: translateY(0);
+}
+
+/* "Saumy Tiwari" Looping Animation */
+/* 1. Main flex container to align "Myself" and the animated text */
+.name-intro-line {
+  display: flex;
+  align-items: baseline; /* Aligns the text nicely at the bottom */
+  gap: 0.5em;          /* Adds a small space between the words */
+}
+
+/* Match the h1 style from the old .intro-text h1 */
+.name-intro-line h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* 2. The container that clips the animation (the "viewport") */
+.rotating-name-container {
+  height: calc(3.5rem * 1.2); /* Must match the h1 height */
+  overflow: hidden;
+  position: relative;
+  
+  /* Style for the animated text */
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--accent-color); /* Give it the orange accent color */
+}
+
+/* --- 1. Original Project Card Styles (Rolled Back) --- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 153, 0, 0.5);
+  box-shadow: 0 0 40px rgba(255, 153, 0, 0.2);
+}
+
+.project-card h3 {
+  margin: 0 0 0.5rem;
+  color: var(--accent-color);
+  font-size: 1.5rem;
+}
+
+.project-card p {
+  color: var(--text-color-dark);
+  margin-bottom: 1.5rem;
+  flex-grow: 1; /* This pushes links to the bottom */
+}
+
+/* Your original .project-links and button styles remain the same */
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+.project-button {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  /* ... other button styles ... */
+}
+
+/* --- 2. NEW CSS For Button Text Slideshow Effect --- */
+
+/* The container inside the button that enables the effect */
+.button-text-slider {
+  position: relative;
+  display: inline-block;
+  /* Set height based on font-size to clip the text */
+  height: 1.2em; 
+  overflow: hidden;
+}
+
+/* Common styles for both text spans */
+.button-text-slider span {
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* The hover text is initially hidden below the container */
+.text-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(100%);
+}
+
+/* When the parent button is hovered, trigger the slide */
+.project-button:hover .text-original {
+  transform: translateY(-100%);
+}
+
+.project-button:hover .text-hover {
+  transform: translateY(0);
+}
+
+/* --- Animated Tagline Effect --- */
+
+/* 1. First, update the original intro-text p selector to target our new div */
+/* This will act as a flex container to align all 3 parts of the sentence */
+.intro-description {
+  /* Copy styles from the old .intro-text p */
+  font-size: 1.2rem;
+  color: var(--text-color-dark);
+  margin: 1rem 0 2.5rem;
+  max-width: 450px;
+  
+  /* New styles to align the parts */
+  display: flex;
+  flex-wrap: wrap; /* Allows text to wrap on smaller screens */
+  align-items: center; /* Vertically aligns the text and the animated box */
+}
+
+/* 2. The container for the animated text, which hides the overflow */
+.animated-tagline-container {
+  display: inline-block; /* Allows it to sit within the text flow */
+  vertical-align: bottom; /* Aligns it nicely with the baseline of the text */
+  height: 1.3em; /* Set height based on font-size to clip the text */
+  overflow: hidden;
+  margin-inline: 0.4em; 
+}
+
+/* 3. The slider div that holds the two text copies and moves */
+.tagline-slider {
+  /* You can adjust the duration (e.g., 4s) to your liking */
+  animation: tagline-slide-loop 2s linear infinite;
+}
+
+/* 4. Common styles for the animated text itself */
+.tagline-slider span {
+  display: block;
+  line-height: 1.3; /* Match the height of the container */
+  color: var(--accent-color); /* Yeh orange color set karega */
+  font-weight: 600; 
+}
+
+/* 5. The keyframes for the animation loop */
+@keyframes tagline-slide-loop {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
