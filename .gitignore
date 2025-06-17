@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules/
 spline-backup/
+README.md
 dist
 dist-ssr
 *.local

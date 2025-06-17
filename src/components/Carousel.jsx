@@ -50,7 +50,7 @@ const DEFAULT_ITEMS = [
         title: "3D Interactive Portfolio",
         description: "The very website you are on! Built with React, GSAP for animations, and Spline for 3D modeling to create an engaging, scroll-driven user experience.",
         id: 7,
-        link: "",
+        link: "https://github.com/Saumy-TOXOTIS/portfolio",
         live_link: "",
     },
 ];
