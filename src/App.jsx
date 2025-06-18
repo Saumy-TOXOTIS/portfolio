@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import CustomCursor from './components/CustomCursor'
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
@@ -112,6 +113,7 @@ export default function App() {
 
   return (
     <>
+    <CustomCursor />
       {!isSplineReady && <Loader />}
       <SplineBackground
         rotationY={rotationY}

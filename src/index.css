@@ -1,3 +1,15 @@
+/* This targets most modern browsers */
+::selection {
+  background-color: var(--accent-color); /* Your theme's orange color */
+  color: var(--primary-bg);             /* Your site's dark background for high contrast */
+}
+
+/* This is for Firefox compatibility */
+::-moz-selection {
+  background-color: var(--accent-color); /* Your theme's orange color */
+  color: var(--primary-bg);             /* Your site's dark background for high contrast */
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -10,6 +22,10 @@ body {
   color: #e0e0e0;
   -webkit-overflow-scrolling: touch;
   overflow-y: scroll;
+}
+
+body, a, button, .cursor-hover-target {
+  cursor: none;
 }
 
 :root {
@@ -840,5 +856,157 @@ html {
   }
   100% {
     transform: translateY(-50%);
+  }
+}
+
+/* --- Contact Form Styles --- */
+.contact-form-container {
+  width: 100%;
+  max-width: 650px;
+  margin: 2rem auto;
+  pointer-events: auto;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* Increased gap for a more spacious feel */
+}
+
+/* The wrapper for each input/label pair */
+.form-group {
+  position: relative;
+  transition: transform 0.1s ease-out; /* Smooth transition for magnetic effect */
+}
+
+/* The stylish floating labels */
+.form-label {
+  position: absolute;
+  top: 1.1rem;
+  left: 1.5rem;
+  color: var(--text-color-dark);
+  font-size: 1rem;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* The actual input/textarea fields */
+.form-input {
+  width: 100%;
+  padding: 1.2rem 1.5rem 1rem;
+  background: rgba(44, 44, 44, 0.4);
+  border: 1px solid var(--border-color);
+  backdrop-filter: blur(5px);
+  border-radius: 12px;
+  color: var(--text-color-light);
+  font-family: var(--font-family);
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+  resize: vertical;
+}
+
+/* Style changes when input is focused or has content */
+.form-input:focus,
+.form-input:not(:placeholder-shown) {
+  border-color: var(--accent-color);
+  background: rgba(44, 44, 44, 0.6);
+}
+
+.form-input:focus + .form-label,
+.form-input:not(:placeholder-shown) + .form-label {
+  top: -0.75rem;
+  left: 1rem;
+  font-size: 0.85rem;
+  color: var(--accent-color);
+  background-color: #1a1a1a; /* Match the dark bg to create a cutout effect */
+  padding: 0 0.5rem;
+  border-radius: 4px;
+}
+
+/* For browsers that don't support :not(:placeholder-shown) */
+.form-input:not([value=""]) + .form-label {
+   top: -0.75rem;
+   left: 1rem;
+   font-size: 0.85rem;
+   color: var(--accent-color);
+   background-color: #1a1a1a;
+   padding: 0 0.5rem;
+   border-radius: 4px;
+}
+
+/* The epic submit button */
+.submit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background-color: var(--accent-color);
+  color: var(--primary-bg);
+  font-weight: 600;
+  font-size: 1rem;
+  font-family: var(--font-family);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  align-self: center; /* Center the button */
+  min-width: 200px;
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: var(--accent-color-hover);
+  box-shadow: 0 0 20px rgba(255, 153, 0, 0.5);
+  transform: translateY(-3px) scale(1.05); /* Add scale on hover */
+}
+
+/* Button states */
+.submit-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.submit-button.state-sending {
+  background-color: #555;
+  color: var(--text-color-light);
+}
+
+.submit-button.state-success {
+  background-color: #28a745; /* Green */
+  color: white;
+}
+
+.submit-button.state-error {
+  background-color: #dc3545; /* Red */
+  color: white;
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+
+/* Status message after submission */
+.status-message {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+.status-message.state-success {
+    color: #28a745;
+}
+.status-message.state-error {
+    color: #dc3545;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .contact-form-container {
+    padding: 0 1rem;
   }
 }

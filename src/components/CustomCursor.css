@@ -1,0 +1,26 @@
+.cursor-dot,
+.cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    /* This is crucial */
+    border-radius: 50%;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    /* Center the element on the cursor */
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--accent-color);
+}
+
+.cursor-outline {
+    width: 32px;
+    height: 32px;
+    background-color: rgba(255, 153, 0, 0.3);
+    /* Semi-transparent accent color */
+    border: 1px solid var(--accent-color);
+}
